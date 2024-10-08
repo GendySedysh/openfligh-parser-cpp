@@ -3,11 +3,13 @@
 int main(int argc, char **argv) {
     if (argc != 2) {
         std::cerr << "Required file argument: ./fit_reader <filename>" << std::endl;
+        return 1;
     }
 
     std::ifstream source(argv[1], std::ios::in | std::ios::binary);
     if (!source.is_open()) {
         std::cerr << "Error with file opening!" << std::endl;
+        return 1;
     }
 
     Parser parser;
